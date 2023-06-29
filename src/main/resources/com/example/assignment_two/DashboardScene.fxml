@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<!-- fx:controller="com.example.assignment_two.DashboardController"-->
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="752.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment_two.DashboardController">
+   <children>
+      <MenuBar layoutY="1.0" prefHeight="25.0" prefWidth="700.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="profileEditMenuBtn" mnemonicParsing="false" onAction="#editProfile" text="Edit Profile" />
+              <MenuItem fx:id="exportMenuBtn" mnemonicParsing="false" onAction="#saveAndExport" text="Export" />
+                  <MenuItem fx:id="saveQuit" mnemonicParsing="false" onAction="#saveAndQuit" text="Save &amp; Quit" />
+                  <MenuItem fx:id="quitBtn" mnemonicParsing="false" onAction="#quitApplication" text="Quit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="TimeTable">
+            <items>
+              <MenuItem fx:id="viewCourseMenuBtn" mnemonicParsing="false" onAction="#viewAllCourses" text="View All" />
+                  <MenuItem fx:id="searchMenuBtn" mnemonicParsing="false" onAction="#searchCourses" text="Search And Enrol" />
+                  <MenuItem fx:id="withdrawMenuBtn" mnemonicParsing="false" onAction="#withdrawCourses" text="Withdraw" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <VBox layoutX="1.0" layoutY="23.0" prefHeight="729.0" prefWidth="700.0">
+         <children>
+            <StackPane prefHeight="41.0" prefWidth="699.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="43.0" stroke="BLACK" strokeType="INSIDE" width="700.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.5030864477157593" blue="0.5030864477157593" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.5077481311725869">
+                                 <color>
+                                    <Color red="1.0" green="0.9140169024467468" blue="0.5099999904632568" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <Label fx:id="dashboardHeader" text="Enrolled Courses">
+                     <font>
+                        <Font name="Lucida Console" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+            <TableView fx:id="enrolledCourseTable" prefHeight="420.0" prefWidth="700.0">
+              <columns>
+                <TableColumn fx:id="nameTab" prefWidth="111.33334612846375" text="Course Name" />
+                <TableColumn fx:id="capacityTab" prefWidth="98.66667938232422" text="Capacity" />
+                  <TableColumn fx:id="yearTab" prefWidth="47.33329772949219" text="Year" />
+                  <TableColumn fx:id="deliveryTab" prefWidth="140.6666259765625" text="Delivery" />
+                  <TableColumn fx:id="dayTab" prefWidth="90.0" text="Day" />
+                  <TableColumn fx:id="timeTab" prefWidth="132.00003051757812" text="Time" />
+                  <TableColumn fx:id="durationTab" minWidth="2.666748046875" prefWidth="77.33331298828125" text="Duration" />
+              </columns>
+            </TableView>
+            <HBox fx:id="scheduleView" prefHeight="216.0" prefWidth="700.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="84.0" prefWidth="170.0">
+                     <children>
+                        <Label text="Monday">
+                           <font>
+                              <Font name="Lucida Console" size="12.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="mondayList" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="84.0" prefWidth="173.0">
+                     <children>
+                        <Label text="Tuesday">
+                           <font>
+                              <Font name="Lucida Console" size="12.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="tuesdayList" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="84.0" prefWidth="175.0">
+                     <children>
+                        <Label text="Wednesday">
+                           <font>
+                              <Font name="Lucida Console" size="12.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="wednesdayList" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="84.0" prefWidth="174.0">
+                     <children>
+                        <Label text="Thursday">
+                           <font>
+                              <Font name="Lucida Console" size="12.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="thursdayList" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="84.0" prefWidth="152.0">
+                     <children>
+                        <Label text="Friday">
+                           <font>
+                              <Font name="Lucida Console" size="12.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="fridayList" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <StackPane prefHeight="45.0" prefWidth="350.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="53.0" stroke="BLACK" strokeType="INSIDE" width="700.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.2839506268501282" green="0.8209876418113708" blue="1.0" opacity="0.8500000238418579" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.524390243902439">
+                                 <color>
+                                    <Color red="0.6875" green="0.3055555522441864" blue="1.0" opacity="0.8500000238418579" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="fillerLabel" text="Logged in as:">
+                           <font>
+                              <Font name="Lucida Console" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" right="10.0" top="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="nameLabel" text="Dummy Text">
+                           <font>
+                              <Font name="Lucida Console" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" top="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="studentNumberLabel" text="Student Number">
+                           <font>
+                              <Font name="Lucida Console" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" top="15.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </Label>
+                        <VBox alignment="TOP_CENTER" prefHeight="53.0" prefWidth="187.0">
+                           <children>
+                              <ToggleButton fx:id="toggleViewBtn" mnemonicParsing="false" onAction="#changeView" text="List">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </ToggleButton>
+                              <Label fx:id="toggleLabel" text="Toggle View">
+                                 <font>
+                                    <Font name="Lucida Console" size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

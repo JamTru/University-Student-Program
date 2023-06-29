@@ -1,0 +1,3 @@
+Alex,Tom
+Math, 0, Year 1, Online, Wednesday, 09:00, 2.0
+Programming skills, 500, Year 1, Face-to-face, Tuesday, 08:30, 1.0
